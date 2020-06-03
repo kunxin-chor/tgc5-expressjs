@@ -1,5 +1,5 @@
 {
-  "name": "01-simple-routes",
+  "name": "02-simple-templates",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "global": "^4.4.0",
+    "hbs": "^4.1.1",
     "nodemon": "^2.0.4"
   }
 }
