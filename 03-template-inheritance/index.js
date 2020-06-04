@@ -38,6 +38,10 @@ hbs.registerHelper('block', function(name) {
     return val;
 });
 
+// Enable forms
+app.use(express.urlencoded({extended:true}))
+app.use(express.json());
+
 /* 2. ROUTES */
 app.get('/', function(req, res){
     res.render('index');
