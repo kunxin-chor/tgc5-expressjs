@@ -1,0 +1,18 @@
+<h1>Animals</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Breed</th>
+            <th></th>
+        </tr>
+    </thead>
+    {{#each animals}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.breed}}</td>
+            <td><a href="/animals/edit/{{this._id}}">Edit</td>
+        </tr>
+    {{/each}}
+</table>
