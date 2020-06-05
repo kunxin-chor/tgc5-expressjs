@@ -1,0 +1,15 @@
+<h1>Books</h1>
+{{#each books}}
+<div class="card">
+    <div class="card-title">
+        {{this.title}}
+    </div>
+
+    <div class="card-body">
+        Author: {{this.author}}<br/>
+        ISBN: {{this.ISBN}}<br/>
+        <a href="/edit/{{this._id}}">Edit</a> | 
+        <a href="/delete/{{this._id}}">Delete </a>
+    </div>
+</div>
+{{/each}}
