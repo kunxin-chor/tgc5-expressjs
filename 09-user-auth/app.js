@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const movieRouter = require('./routes/movies');
 
 // setup Mongodb
 const mongoUtil = require('./mongoUtil.js');
@@ -50,6 +51,7 @@ mongoUtil.connect(()=>{
     console.log("MongoDB has been connected successfully");
     app.use('/', indexRouter);
     app.use('/users', usersRouter);
+    app.use('/movies', movieRouter);
 
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {
