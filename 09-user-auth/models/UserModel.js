@@ -1,10 +1,13 @@
 const mongoUtil = require('../mongoUtil');
-const ObjectId = require('mongodb').ObjectId
+const ObjectId = require('mongodb').ObjectId;
+const bcrpyt = require('bcryptjs');
 
 module.exports ={
     
     // function to create a new user
     createUser:async function(username, email, password){
+        let salt = await bcrpyt.genSalt(10);
+        password = await bcrpyt.hash(password, salt);
         let result = await mongoUtil.getDB().collection('users').insertOne({
             username, email, password
         })

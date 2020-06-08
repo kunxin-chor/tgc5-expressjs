@@ -1,6 +1,7 @@
 const UserModel = require('../models/UserModel');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcryptjs');
 
 // serialize user -- associated a session id with a user
 // need to specify which part of the user to associate
@@ -32,7 +33,9 @@ passport.use(new LocalStrategy(
         let user = await UserModel.findByEmail(email);
 
         // 2. check if the password matches
-        if (user && user.password == password) {
+        // if (user && user.password == password) {
+        // first argument of compareSync must be the plaintext, second argument is the encrpyted text
+        if (user && bcrypt.compareSync(password, user.password)) {
             done(null, user);
         } else {
             done("Invalid login", false, {
